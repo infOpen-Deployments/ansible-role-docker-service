@@ -1,0 +1,21 @@
+---
+
+# Ansistrano/deploy
+- src: 'carlosbuenosvinos.ansistrano-deploy'
+  version: '2.9.1'
+  name: 'carlosbuenosvinos.ansistrano-deploy__2.9.1'
+
+# Yum EPEL
+- src: 'geerlingguy.repo-epel'
+  version: '1.2.3'
+  name: 'geerlingguy.repo-epel__1.2.3'
+
+# Pip
+- src: 'geerlingguy.pip'
+  version: '1.2.1'
+  name: 'geerlingguy.pip__1.2.1'
+
+# Docker & Docker compose
+- src: 'geerlingguy.docker'
+  version: '2.5.0'
+  name: 'geerlingguy.docker__2.5.0'
