@@ -1,0 +1,27 @@
+---
+
+galaxy_info:
+  author: 'Alexandre Chaussier'
+  description: 'Base package to manage common tasks to install a dockerized service'
+  company: 'Infopen (https://infopen.pro)'
+  license: ''''
+  min_ansible_version: '2.5'
+  github_branch: 'master'
+  platforms:
+    - name: 'Debian'
+      versions:
+        - 'stretch'
+    - name: 'EL'
+      versions:
+        - '7'
+    - name: 'Ubuntu'
+      versions:
+        - 'bionic'
+  galaxy_tags:
+    - 'docker'
+    - 'system'
+dependencies:
+  - role: 'geerlingguy.repo-epel__1.2.3'
+    when: "'docker-centos' in inventory_hostname"
+  - role: 'geerlingguy.docker__2.5.0'
+  - role: 'geerlingguy.pip__1.2.1'

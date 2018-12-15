@@ -1,0 +1,34 @@
+---
+
+# Generic Docker service deployment
+
+- name: 'DOCKER SERVICE | Deploy Docker networks'
+  docker_network:
+    name: "{{ item.name }}"
+  loop: "{{ _docker_service_networks | default([]) }}"
+
+
+- name: 'DOCKER SERVICE | Deploy Docker volumes'
+  docker_volume:
+    name: "{{ item.name }}"
+  loop: "{{ _docker_service_volumes | default([]) }}"
+
+
+- name: 'DOCKER SERVICE | Manage destination and data folders'
+  file:
+    path: "{{ item.path }}"
+    owner: "{{ item.owner | default('root') }}"
+    group: "{{ item.group | default('root') }}"
+    mode: "{{ item.mode | default('0755') }}"
+    state: 'directory'
+  loop: "{{ _docker_service_folders }}"
+
+
+- name: 'DOCKER SERVICE | Deploy Docker compose project'
+  import_role:
+    name: 'ansistrano.deploy__2.11.0'
+  vars:
+    ansistrano_deploy_to: "{{ _ansistrano_deploy_to }}"
+    ansistrano_deploy_via: "{{ _ansistrano_deploy_via }}"
+    ansistrano_git_repo: "{{ _ansistrano_git_repo }}"
+    ansistrano_git_branch: "{{ _ansistrano_git_branch }}"
