@@ -20,9 +20,10 @@
   loop: "{{ _docker_service_templates | default([]) }}"
 
 
-- name: 'DOCKER SERVICE | Configure Docker Hub credentials'
+- name: 'DOCKER SERVICE | Configure Docker registries credentials'
   docker_login:
-    email: "{{ _docker_dockerhub_email }}"
-    username: "{{ _docker_dockerhub_username }}"
-    password: "{{ _docker_dockerhub_password }}"
-  when: "_docker_manage_credentials | bool"
+    email: "{{ item.email | default(omit) }}"
+    username: "{{ item.username }}"
+    password: "{{ item.password }}"
+    registry_url: "{{ item.registry_url }}"
+  loop: "{{ _docker_registries | default([]) }}"
