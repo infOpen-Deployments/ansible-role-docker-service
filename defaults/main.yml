@@ -9,11 +9,8 @@ ansistrano_after_update_code_tasks_file: "{{ playbook_dir }}/roles/externals/inf
 ansistrano_after_cleanup_tasks_file: "{{ playbook_dir }}/roles/externals/infopen.docker-service__1.0.1/tasks/after_clean_up.yml"
 
 
-# Docker Hub credentials
-_docker_manage_credentials: False
-_docker_dockerhub_email: ''
-_docker_dockerhub_username: ''
-_docker_dockerhub_password: ''
+# Docker registries credentials
+_docker_registries: []
 
 
 # Manage docker prerequisites and external items
