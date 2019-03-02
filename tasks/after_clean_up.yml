@@ -1,18 +1,27 @@
 ---
 
 - name: 'DOCKER_SERVICE | Build Docker compose containers'
-  command: "{{ _docker_service_compose_path }} build --no-cache"
+  command: >
+    {{ _docker_service_compose_path }}
+    {{ _docker_service_compose_options }}
+    build --no-cache
   args:
     chdir: "{{ ansistrano_release_path.stdout }}"
 
 
 - name: 'DOCKER_SERVICE | Stop Docker compose project'
-  command: "{{ _docker_service_compose_path }} stop"
+  command: >
+    {{ _docker_service_compose_path }}
+    {{ _docker_service_compose_options }}
+     stop
   args:
     chdir: "{{ ansistrano_release_path.stdout }}"
 
 
 - name: 'DOCKER SERVICE | Run Docker compose project'
-  command: "{{ _docker_service_compose_path }} up -d --force-recreate"
+  command: >
+    {{ _docker_service_compose_path }}
+    {{ _docker_service_compose_options }}
+    up -d --force-recreate
   args:
     chdir: "{{ ansistrano_release_path.stdout }}"
