@@ -14,7 +14,7 @@ _docker_registries: []
 
 
 # Docker override
-_docker_compose_override: {}
+_docker_service_compose_override: {}
 
 
 # Manage docker prerequisites and external items
