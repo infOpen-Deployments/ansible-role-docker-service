@@ -14,7 +14,7 @@
   template:
     src: 'templates/docker-compose.override.yml.j2'
     dest: "{{ ansistrano_release_path.stdout }}/docker-compose.override.yml"
-  when: "_docker_compose_override | length > 0"
+  when: "_docker_service_compose_override | length > 0"
 
 
 - name: 'DOCKER SERVICE | Deploy configuration files templates'
