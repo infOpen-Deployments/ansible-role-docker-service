@@ -5,8 +5,8 @@
 # Ansistrano default settings
 _ansistrano_deploy_to: "/opt/infopen/{{ _docker_service_project_name | mandatory }}"
 _ansistrano_deploy_via: 'git'
-ansistrano_after_update_code_tasks_file: "{{ playbook_dir }}/roles/externals/infopen.docker-service__1.3.2/tasks/after_update_code.yml"
-ansistrano_after_cleanup_tasks_file: "{{ playbook_dir }}/roles/externals/infopen.docker-service__1.3.2/tasks/after_clean_up.yml"
+ansistrano_after_update_code_tasks_file: "{{ playbook_dir }}/{{ _roles_path | default('roles/externals') }}/{{ _docker_service_role_full_name | mandatory }}/tasks/after_update_code.yml"
+ansistrano_after_cleanup_tasks_file: "{{ playbook_dir }}/{{ _roles_path | default('roles/externals') }}/{{ _docker_service_role_full_name | mandatory }}/tasks/after_clean_up.yml"
 
 
 # Docker registries credentials
