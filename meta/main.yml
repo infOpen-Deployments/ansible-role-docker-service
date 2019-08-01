@@ -20,8 +20,4 @@ galaxy_info:
   galaxy_tags:
     - 'docker'
     - 'system'
-dependencies:
-  - role: 'geerlingguy.repo-epel__1.2.3'
-    when: "'docker-centos' in inventory_hostname"
-  - role: 'geerlingguy.docker__2.5.0'
-  - role: 'geerlingguy.pip__1.2.1'
+dependencies: []
