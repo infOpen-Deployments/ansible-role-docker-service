@@ -18,6 +18,7 @@ _docker_service_compose_override: {}
 
 
 # Manage docker prerequisites and external items
+_docker_service_ansistrano_role_name: 'ansistrano.deploy__3.2.0'
 _docker_service_compose_options: ''
 _docker_service_compose_path: '/usr/local/bin/docker-compose'
 _docker_service_files: []
