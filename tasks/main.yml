@@ -26,7 +26,7 @@
 
 - name: 'DOCKER SERVICE | Deploy Docker compose project'
   import_role:
-    name: 'ansistrano.deploy__2.11.0'
+    name: "{{ _docker_service_ansistrano_role_name }}"
   environment:
     COMPOSE_PROJECT_NAME: "{{ _docker_service_project_name }}"
   vars:
