@@ -2,7 +2,8 @@
 
 - name: 'DOCKER SERVICE | Deploy untemplated files'
   copy:
-    src: "{{ item.src }}"
+    content: "{{ item.content | default(omit) }}"
+    src: "{{ item.src | default(omit) }}"
     dest: "{{ item.dest }}"
     owner: "{{ item.owner | default(omit) }}"
     group: "{{ item.group | default(omit) }}"
