@@ -47,18 +47,21 @@ $ MOLECULE_OPTIONS='' MOLECULE_COMMAND=converge tox
 # Ansistrano default settings
 _ansistrano_deploy_to: "/opt/infopen/{{ _docker_service_project_name | mandatory }}"
 _ansistrano_deploy_via: 'git'
-ansistrano_after_update_code_tasks_file: "{{ playbook_dir }}/roles/externals/infopen.docker-service__1.0.1/tasks/after_update_code.yml"
-ansistrano_after_cleanup_tasks_file: "{{ playbook_dir }}/roles/externals/infopen.docker-service__1.0.1/tasks/after_clean_up.yml"
+ansistrano_after_update_code_tasks_file: "{{ _roles_path | default(playbook_dir ~ '/roles/externals') }}/{{ _docker_service_role_full_name | mandatory }}/tasks/after_update_code.yml"
+ansistrano_after_cleanup_tasks_file: "{{ _roles_path | default(playbook_dir ~ '/roles/externals') }}/{{ _docker_service_role_full_name | mandatory }}/tasks/after_clean_up.yml"
 
 
-# Docker Hub credentials
-_docker_manage_credentials: False
-_docker_dockerhub_email: ''
-_docker_dockerhub_username: ''
-_docker_dockerhub_password: ''
+# Docker registries credentials
+_docker_registries: []
+
+
+# Docker override
+_docker_service_compose_override: {}
 
 
 # Manage docker prerequisites and external items
+_docker_service_ansistrano_role_name: 'ansistrano.deploy__3.2.0'
+_docker_service_compose_options: ''
 _docker_service_compose_path: '/usr/local/bin/docker-compose'
 _docker_service_files: []
 _docker_service_folders:
