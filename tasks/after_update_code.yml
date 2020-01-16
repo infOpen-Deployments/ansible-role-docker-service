@@ -35,3 +35,4 @@
     password: "{{ item.password }}"
     registry_url: "{{ item.registry_url }}"
   loop: "{{ _docker_registries | default([]) }}"
+  no_log: True
